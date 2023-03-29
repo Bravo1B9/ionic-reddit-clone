@@ -6,14 +6,14 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let post of posts">
       <ion-avatar>
-        <img src="https://i.pravatar.cc/150?img=1" alt="avatar">
+        <img [src]="post.author.avatarUrl" alt="avatar">
       </ion-avatar>
       <ion-label>
-        <h2>Title</h2>
-        <p>Author name - post date</p>
-        <p>Post body</p>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.author.name }} - {{ post.date }}</p>
+        <p>{{ post.body }}</p>
       </ion-label>
     </ion-item>
   </ion-list>
