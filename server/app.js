@@ -26,6 +26,12 @@ app.post('/posts', async (req, res) => {
   res.json({ msg: 'Post added' });
 });
 
+app.get('/posts', async (req, res) => {
+  const db = client.db('database');
+  const posts = await db.collection('posts').find().toArray();
+  res.json(posts);
+});
+
 app.listen(PORT, () => {
   console.log(`App listening on port `)
 });
