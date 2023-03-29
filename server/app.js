@@ -1,9 +1,11 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
+const cors = require('cors');
 
 const PORT = 3000;
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const dbUri = 'mongodb+srv://brendon:pass123@cluster0.ysgq09a.mongodb.net/?retryWrites=true&w=majority';
 const client = new MongoClient(dbUri, { useNewUrlParser: true, useUnifiedTopology: true });
