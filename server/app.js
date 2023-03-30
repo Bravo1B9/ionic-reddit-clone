@@ -1,6 +1,6 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
-const { ObjectId } = require('mongodb').ObjectId;
+const ObjectId = require('mongodb').ObjectId;
 const cors = require('cors');
 
 const PORT = 3000;
@@ -38,7 +38,7 @@ app.get('/posts', async (req, res) => {
 app.get('/posts/:id', async (req, res) => {
   const db = client.db('database');
   const id = req.params.id
-  const post = await db.collection('posts').findOne({ _id: ObjectId(id) });
+  const post = await db.collection('posts').findOne({ _id: new ObjectId(id) });
   res.json(post);
 });
 
